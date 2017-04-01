@@ -1,17 +1,35 @@
 #!groovy
 
 def provisioner() {
-  stage('Infra sync') {
+  stage('Checkout Environment definition') {
     checkout scm
   }
 
-  stage('Build Environment Space') {
+  stage('Allocate Environment') {
   sh """#!/bin/bash -x
       cf orgs
     """
   }
 
-  stage('Secure Environment Space') {
+  stage('Switch to target Environment') {
+  sh """#!/bin/bash -x
+      cf target -o org_name
+    """
+  }
+
+  stage('Manage/Update Environment space-quotas') {
+    sh """#!/bin/bash -x
+      cf space-quotas
+      """
+  }
+
+  stage('Build Stage Environment Space') {
+  sh """#!/bin/bash -x
+      cf orgs
+    """
+  }
+
+  stage('Secure Environment') {
       sh """#!/bin/bash -x
           cf spaces
         """

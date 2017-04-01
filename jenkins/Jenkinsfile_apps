@@ -35,7 +35,13 @@ def provisioner() {
   """
   }
 
-  stage('Manage/Update Environment Variables') {
+  stage('Manage/Update Apps Env Variables') {
+  sh """#!/bin/bash -x
+    cf orgs
+  """
+  }
+
+  stage('Manage/Update Apps SSH Access') {
   sh """#!/bin/bash -x
     cf orgs
   """

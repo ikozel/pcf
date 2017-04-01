@@ -23,30 +23,54 @@ def provisioner() {
       """
   }
 
+  stage('Manage/Update Routes') {
+  sh """#!/bin/bash -x
+    cf orgs
+  """
+  }
+
+  stage('Manage/Update Domains') {
+  sh """#!/bin/bash -x
+    cf orgs
+  """
+  }
+
+  stage('Manage/Update Service Auth Tokens ') {
+      sh """#!/bin/bash -x
+          cf spaces
+        """
+  }
+
+  stage('Manage/Update Space SSH') {
+    sh """#!/bin/bash -x
+        cf spaces
+      """
+  }
+
+  stage('Manage/Update PCF Services') {
+    sh """#!/bin/bash -x
+        cf spaces
+      """
+  }
+
+  stage('Secure Environment: Security Groups') {
+      sh """#!/bin/bash -x
+          cf spaces
+        """
+  }
+
+  stage('Secure Environment: Space Manager') {
+      sh """#!/bin/bash -x
+          cf spaces
+        """
+  }
+
   stage('Build Stage Environment Space') {
   sh """#!/bin/bash -x
       cf orgs
     """
   }
-
-stage('Manage/Update Service Auth Tokens ') {
-    sh """#!/bin/bash -x
-        cf spaces
-      """
-}
-
-  stage('Secure Stage Environment: Security Groups') {
-      sh """#!/bin/bash -x
-          cf spaces
-        """
-  }
-
-  stage('Secure Stage Environment: Assign Space Manager') {
-      sh """#!/bin/bash -x
-          cf spaces
-        """
-  }
-
+  
 }
 
 node('Chef Provisioner Prod') {

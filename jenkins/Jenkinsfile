@@ -1,6 +1,6 @@
 #!groovy
 
-def run_on_provisioner() {
+def provisioner() {
   stage('Checkout') {
     checkout scm
   }
@@ -24,4 +24,8 @@ def run_on_provisioner() {
     }
   }
 
+}
+
+node('Chef Provisioner Prod') {
+  provisioner()
 }

@@ -23,22 +23,22 @@ def provisioner() {
   """
   }
 
+  stage('Manage/Update Feature Flags') {
+  sh """#!/bin/bash -x
+    cf orgs
+  """
+  }
+
+  stage('Manage/Update Environment Variables') {
+  sh """#!/bin/bash -x
+    cf orgs
+  """
+  }
+
   stage('Deploy Application into Stage Environment Space') {
   sh """#!/bin/bash -x
       cf orgs
     """
-  }
-
-  stage('Invoke Acceptance Tests') {
-      sh """#!/bin/bash -x
-          cf spaces
-        """
-  }
-
-  stage('Invoke Performance Tests') {
-      sh """#!/bin/bash -x
-          cf spaces
-        """
   }
 
 }

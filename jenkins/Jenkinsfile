@@ -29,6 +29,12 @@ def provisioner() {
     """
   }
 
+stage('Manage/Update Service Auth Tokens ') {
+    sh """#!/bin/bash -x
+        cf spaces
+      """
+}
+
   stage('Secure Stage Environment: Security Groups') {
       sh """#!/bin/bash -x
           cf spaces

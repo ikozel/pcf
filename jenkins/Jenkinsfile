@@ -13,14 +13,7 @@ def provisioner() {
       sh "ls"
       sh """#!/bin/bash
           set -x
-          # //cf create-user ${org_name} ${org_name}
-          # //cf set-org-role "\${org_name}" "\${org_name}" "OrgAuditor"
           cf orgs | grep org_name
-
-          #if [ $? == 1 ]
-          #then
-   	      #  cf create-org "\${org_name}"
-          #fi
         """
   }
 

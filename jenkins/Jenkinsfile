@@ -15,7 +15,7 @@ def provisioner() {
           set -x
           #cf create-user ${org_name} ${org_name}
           #cf set-org-role "\${org_name}" "\${org_name}" "OrgAuditor"
-          cf orgs | grep ${org_name}
+          cf orgs | grep \"${org_name}\"
 
           #if [ $? == 1 ]
           #then

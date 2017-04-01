@@ -11,8 +11,7 @@ def provisioner() {
 
   stage('Secure Environment Space') {
       sh "ls"
-      sh """#!/bin/bash
-          set -x
+      sh """#!/bin/bash -x
           cf orgs | grep org_name
         """
   }

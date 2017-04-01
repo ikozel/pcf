@@ -1,9 +1,9 @@
 #!groovy
 
 def run_on_provisioner() {
-//  stage('Checkout') {
-//    checkout scm
-//  }
+  stage('Checkout') {
+    checkout scm
+  }
 
   stage('Build Environment Space') {
     ansiColor('xterm') {

@@ -6,11 +6,12 @@ def provisioner() {
   }
 
   stage('Build Environment Space') {
-    sh "cf orgs"
+  sh """#!/bin/bash -x
+      cf orgs | grep org_name
+    """
   }
 
   stage('Secure Environment Space') {
-      sh "ls"
       sh """#!/bin/bash -x
           cf orgs | grep org_name
         """

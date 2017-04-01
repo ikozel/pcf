@@ -1,11 +1,11 @@
 #!groovy
 
 def provisioner() {
-  stage('Checkout Environment definition') {
+  stage('Checkout Environment Definition') {
     checkout scm
   }
 
-  stage('Allocate Environment') {
+  stage('Allocate Stage Environment') {
   sh """#!/bin/bash -x
       cf orgs
     """
@@ -29,13 +29,13 @@ def provisioner() {
     """
   }
 
-  stage('Secure Environment: Security Groups') {
+  stage('Secure Stage Environment: Security Groups') {
       sh """#!/bin/bash -x
           cf spaces
         """
   }
 
-  stage('Secure Environment: Assign Space Manager') {
+  stage('Secure Stage Environment: Assign Space Manager') {
       sh """#!/bin/bash -x
           cf spaces
         """

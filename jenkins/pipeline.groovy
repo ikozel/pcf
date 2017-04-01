@@ -12,7 +12,7 @@ pipelineJob("PCF/Infra/PCF-Environment") {
     def total_space_memory = ['2G','3G']
     def space_routs = ['2','4']
     def service_instances = ['2','4']
-    choiceParam('org_name', services)
+    choiceParam('org_name', services, 'Service pipeline')
     choiceParam('env_name', environments)
     choiceParam('instance_memory', instance_memory)
     choiceParam('total_space_memory', total_space_memory)

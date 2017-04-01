@@ -5,37 +5,25 @@ def provisioner() {
     checkout scm
   }
 
-  stage('Allocate Stage Environment') {
-  sh """#!/bin/bash -x
-      cf orgs
-    """
-  }
-
   stage('Connect to Stage Environment') {
   sh """#!/bin/bash -x
       cf target -o cyber
     """
   }
 
-  stage('Manage/Update Environment space-quotas') {
-    sh """#!/bin/bash -x
-      cf space-quotas
-      """
-  }
-
-  stage('Build Stage Environment Space') {
+  stage('Deploy Application into Stage Environment Space') {
   sh """#!/bin/bash -x
       cf orgs
     """
   }
 
-  stage('Secure Stage Environment: Security Groups') {
+  stage('Invoke Acceptance Tests') {
       sh """#!/bin/bash -x
           cf spaces
         """
   }
 
-  stage('Secure Stage Environment: Assign Space Manager') {
+  stage('Invoke Performance Tests') {
       sh """#!/bin/bash -x
           cf spaces
         """

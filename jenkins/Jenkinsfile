@@ -29,7 +29,13 @@ def provisioner() {
     """
   }
 
-  stage('Secure Environment') {
+  stage('Secure Environment: Security Groups') {
+      sh """#!/bin/bash -x
+          cf spaces
+        """
+  }
+
+  stage('Secure Environment: Assign Space Manager') {
       sh """#!/bin/bash -x
           cf spaces
         """

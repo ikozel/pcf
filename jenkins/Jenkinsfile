@@ -1,0 +1,27 @@
+#!groovy
+
+def run_on_provisioner() {
+//  stage('Checkout') {
+//    checkout scm
+//  }
+
+  stage('Build Environment Space') {
+    ansiColor('xterm') {
+    sh """#!/bin/bash
+        set -x
+        cf orgs
+      """
+    }
+  }
+
+  stage('Secure Environment Space') {
+    ansiColor('xterm') {
+      sh "berks install"
+      sh """#!/bin/bash
+          set -x
+          pwd
+        """
+    }
+  }
+
+}

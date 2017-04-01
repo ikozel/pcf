@@ -13,7 +13,7 @@ def provisioner() {
 
   stage('Switch to target Environment') {
   sh """#!/bin/bash -x
-      cf target -o dev
+      cf target -o cyber
     """
   }
 

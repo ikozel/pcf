@@ -6,19 +6,15 @@ def provisioner() {
   }
 
   stage('Build Environment Space') {
-    ansiColor('xterm') {
     sh "cf orgs"
-    }
   }
 
   stage('Secure Environment Space') {
-    ansiColor('xterm') {
       sh "ls"
       sh """#!/bin/bash
           set -x
           pwd
         """
-    }
   }
 
 }

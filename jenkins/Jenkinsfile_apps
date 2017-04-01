@@ -11,6 +11,12 @@ def provisioner() {
     """
   }
 
+  stage('Manage/Update deployment Manifest') {
+  sh """#!/bin/bash -x
+    cf orgs
+  """
+  }
+
   stage('Manage/Update running-environment-variable-group') {
   sh """#!/bin/bash -x
     cf orgs

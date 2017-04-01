@@ -1,7 +1,7 @@
 folder("PCF")
 folder("PCF/Infra")
 
-pipelineJob("PCF/Infra/PCF-Environment") {
+pipelineJob("PCF/Infra/PCF-Environment-2.0") {
 
 
   label('Chef Provisioner Prod')

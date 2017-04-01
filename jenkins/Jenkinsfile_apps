@@ -11,7 +11,7 @@ def provisioner() {
     """
   }
 
-  stage('Manage/Update deployment Manifest') {
+  stage('Manage deployment Manifest') {
   sh """#!/bin/bash -x
     cf orgs
   """
@@ -36,6 +36,12 @@ def provisioner() {
   }
 
   stage('Manage/Update Environment Variables') {
+  sh """#!/bin/bash -x
+    cf orgs
+  """
+  }
+
+  stage('Update deployment Manifest') {
   sh """#!/bin/bash -x
     cf orgs
   """

@@ -1,5 +1,7 @@
 #!groovy
 
+import com.cloudbees.hudson.plugins.folder.*
+
 def provisioner() {
   stage('Checkout Environment Definition') {
     checkout scm

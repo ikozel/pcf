@@ -1,8 +1,7 @@
 
 
 node {
-        stage('Build') {
-            agent any
+        stage('checkout') {
             steps {
                 checkout scm
             }

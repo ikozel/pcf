@@ -1,6 +1,6 @@
 
-    stages {
-        stage('Build') {
-        }
-   }
 
+node {
+   stage('Build') {
+   }
+}

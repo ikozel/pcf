@@ -1,6 +1,5 @@
 
-
-node {
+pipeline {
         stage('checkout') {
             steps {
                 checkout scm

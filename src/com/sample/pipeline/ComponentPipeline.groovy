@@ -18,7 +18,7 @@ def invoke() {
   stages.ansiColor('xterm') {
     stages.node('master') {
       stages.stage('PWD') {
-        checkOutStage 
+        checkOutStage ()
       }    
       stages.stage('PWD') {
         gradleStage ('pwd')

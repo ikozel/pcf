@@ -14,21 +14,35 @@ class ComponentPipeline implements Serializable {
     this.stages                = stages
   }
   
-  def main() {
-    stages.ansiColor('xterm') {
-      stages.node('master') {
-        stages.stage('PWD') {
-          shStage ('pwd; ls -la')
-        }
+def invoke() {
+  stages.ansiColor('xterm') {
+    stages.node('master') {
+      stages.stage('PWD') {
+        checkOutStage ('pwd; ls -la')
+      }    
+      stages.stage('PWD') {
+        gradleStage ('pwd; ls -la')
       }
+      
+    }
+  }
+}
+
+def checkOutStage() {
+    stages.stage ('Checkout') {
+      stages.checkout([
+         $class: 'GitSCM' //,
+         //branches: stages.scm.branches
+      ])
     }
   }
 
-def shStage(_cmd) {
+  
+def gradleStage(_cmd) {
     stages.stage('Checkout') {
       checkout scm
     }
-    stages.stage("Test ${_cmd}") {
+    stages.stage("Scope ${_cmd}") {
       stages.sh "${_cmd}"
     }
     stages.stage('Build') {

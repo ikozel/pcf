@@ -8,7 +8,7 @@ import groovy.json.*
 class ComponentPipeline implements Serializable {
   def stages, args
   
-  ComponentPipeline(Map args=[:], stages, env) {
+  ComponentPipeline(Map args=[:], stages) {
     this.args                  = args
     this.stages                = stages
   }

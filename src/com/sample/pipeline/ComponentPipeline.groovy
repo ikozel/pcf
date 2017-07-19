@@ -13,4 +13,16 @@ class ComponentPipeline implements Serializable {
     this.args                  = args
     this.stages                = stages
   }
+  
+  def main() {
+    stages.ansiColor('xterm') {
+      stages.node('master') {
+        stages.stage('PWD') {
+          sh 'pwd'
+        }
+      }
+    }
+  }
+  
 }
+

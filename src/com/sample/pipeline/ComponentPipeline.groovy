@@ -18,15 +18,27 @@ class ComponentPipeline implements Serializable {
     stages.ansiColor('xterm') {
       stages.node('master') {
         stages.stage('PWD') {
-          shStage ('pwd')
+          shStage ('pwd; ls -la')
         }
       }
     }
   }
 
 def shStage(_cmd) {
+    stages.stage('Checkout') {
+      checkout scm
+    }
     stages.stage("Test ${_cmd}") {
       stages.sh "${_cmd}"
+    }
+    stages.stage('Build') {
+      stages.sh 'gradle clean build'
+    }
+    stages.stage('Test') {
+      shstages.sh'gradle test'
+    }
+    stages.stage('Package') {
+      stages.sh 'gradle jar'
     }
 }
   

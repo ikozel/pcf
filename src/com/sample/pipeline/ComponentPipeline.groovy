@@ -17,6 +17,7 @@ class ComponentPipeline implements Serializable {
 def invoke() {
   stages.ansiColor('xterm') {
     stages.node('master') {
+      
       stages.stage('PWD') {
         checkOutStage ()
       }    
@@ -39,9 +40,6 @@ def checkOutStage() {
 
   
 def gradleStage(_cmd) {
-    stages.stage('Checkout') {
-      checkout scm
-    }
     stages.stage("Scope ${_cmd}") {
       stages.sh "${_cmd}"
     }

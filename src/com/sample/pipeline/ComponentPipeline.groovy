@@ -47,7 +47,7 @@ def gradleStage(_cmd) {
       stages.sh 'gradle clean build'
     }
     stages.stage('Test') {
-      shstages.sh'gradle test'
+      stages.sh'gradle test'
     }
     stages.stage('Package') {
       stages.sh 'gradle jar'

@@ -21,7 +21,7 @@ def invoke() {
         checkOutStage ('pwd; ls -la')
       }    
       stages.stage('PWD') {
-        gradleStage ('pwd; ls -la')
+        gradleStage ('pwd')
       }
       
     }

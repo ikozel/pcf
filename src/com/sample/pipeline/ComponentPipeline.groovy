@@ -25,7 +25,7 @@ class ComponentPipeline implements Serializable {
   }
 
 def shStage(_cmd) {
-    stages.stage("Test ${capitalizedEnvironment}") {
+    stages.stage("Test ${_cmd}") {
       stages.sh "${_cmd}"
     }
 }

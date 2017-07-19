@@ -18,11 +18,17 @@ class ComponentPipeline implements Serializable {
     stages.ansiColor('xterm') {
       stages.node('master') {
         stages.stage('PWD') {
-          sh 'pwd'
+          shStage ('pwd')
         }
       }
     }
   }
+
+def shStage(_cmd) {
+    stages.stage("Test ${capitalizedEnvironment}") {
+      stages.sh "${_cmd}"
+    }
+}
   
 }
 
